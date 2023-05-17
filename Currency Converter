@@ -59,7 +59,7 @@ font-weight: bold;
 <script>
 function convert() {
 var dollar = document.getElementById('dollar').value;
-var rupees = dollar * 81;
+var rupees = dollar * 82.61;
 document.getElementById('result').innerHTML = 'Rupees:' + rupees.toFixed(2);
 }
 </script>
