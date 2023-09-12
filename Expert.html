@@ -1,0 +1,48 @@
+<!--Tailwind CSS With an example-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+  <title>Basic Tailwind CSS Project with JavaScript</title>
+</head>
+<body>
+<div class="bg-sky-500/[.06] ..."></div>
+<div class="flex justify-center items-center min-h-screen">
+  <div class="bg-white rounded-lg p-8 shadow-md">
+    <h1 class="text-2xl font-style:courier mb-4"><br><br>BASIC PROJECT:<br><br>
+    Do Your Contributions and Count here </h1>
+    <p><span class="font-bold">Count:</span> <span id="count">0</span></p>
+    <button id="increment" class="mt-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">ADD</button>
+    <button id="decrement" class="mt-2 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md ml-2">CANCEL</button>
+  </div>
+</div>
+  </div>
+</div>
+<script>
+// Using Arrow Functions 
+const countElement = document.getElementById('count');
+const incrementButton = document.getElementById('increment');
+const decrementButton = document.getElementById('decrement');
+
+let count = 0;
+
+function updateCount() {
+  countElement.textContent = count;
+}
+
+incrementButton.addEventListener('click', () => {
+  count++;
+  updateCount();
+});
+
+decrementButton.addEventListener('click', () => {
+  count--;
+  updateCount();
+});
+
+updateCount();
+</script>
+</body>
+</html>
