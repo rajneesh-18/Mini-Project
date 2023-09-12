@@ -1,0 +1,80 @@
+<!--Test the Timer-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    body {
+    background-image:url("https://cdn.pixabay.com/photo/2021/08/26/16/16/fantasy-6576475_960_720.jpg");
+    font-family:courier;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f9f9f9;
+}
+
+.countdown {
+    text-align: center;
+}
+
+.timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.time {
+    font-size: 2rem;
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+}
+h1{
+color:black;
+font-size:56px;
+}
+
+    </style>
+    <title>Countdown Timer</title>
+</head>
+<body>
+    <div class="countdown">
+        <h1>START COUNTDOWN</h1>
+        <div class="timer">
+            <div class="time" id="days">00</div>
+            <div class="time" id="hours">00</div>
+            <div class="time" id="minutes">00</div>
+            <div class="time" id="seconds">00</div>
+        </div>
+    </div>
+
+    <script>
+    const countdownDate = new Date('2023-12-31T23:59:59').getTime();
+
+const updateCountdown = () => {
+    const now = new Date().getTime();
+    const distance = countdownDate - now;
+
+    const days = Math.floor(distance / (2000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (2000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (2000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (2000 * 60)) / 1000);
+
+    document.getElementById('days').textContent = days.toString().padStart(2, '0');
+    document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+    document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+    document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+};
+
+updateCountdown();
+setInterval(updateCountdown, 2000);
+
+    </script>
+</body>
+</html>
