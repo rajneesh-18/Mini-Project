@@ -1,0 +1,38 @@
+body {
+    font-family: courier;
+    text-align: center;
+    background-color:grey;
+}
+
+.container {
+    background-color:transparent;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 1, 0.2);
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+#quote-text {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#quote-author {
+    font-style:courier;
+    margin-top: 10px;
+}
+
+#new-quote-button {
+    background-color: black;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+#new-quote-button:hover {
+    background-color: green;
+}
