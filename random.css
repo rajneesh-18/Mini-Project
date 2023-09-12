@@ -1,38 +1,47 @@
 body {
-    font-family: courier;
+    display:flexbox;
+    font-family: Arial, sans-serif;
+    background-image:url(https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_640.jpg);
     text-align: center;
-    background-color:grey;
+    margin: 0;
+}
+h1{
+font-family:courier;
+color:black;
 }
 
 .container {
-    background-color:transparent;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 1, 0.2);
+    background-color: transparent;
     padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     max-width: 400px;
     margin: 0 auto;
 }
 
-#quote-text {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-#quote-author {
-    font-style:courier;
-    margin-top: 10px;
-}
-
-#new-quote-button {
-    background-color: black;
+button {
+    padding: 5px 10px;
+    background-color:black;
     color: #fff;
     border: none;
-    padding: 10px 20px;
-    font-size: 18px;
-    border-radius: 5px;
-    margin-top: 20px;
+    border-radius: 3px;
+    cursor: pointer;
 }
 
-#new-quote-button:hover {
-    background-color: green;
+ul {
+    list-style: none;
+    padding: 0;
+    background-color:transparent;
+}
+
+li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li:last-child {
+    border-bottom: none;
 }
