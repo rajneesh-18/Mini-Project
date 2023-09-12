@@ -1,0 +1,124 @@
+<!--Testing the project-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+  body {
+  font-family:courier;
+  text-align: center;
+  background-image:url("https://img.freepik.com/premium-vector/monochrome-seamless-pattern-with-puzzles-riddles-quiz-tournament-competition-knowledge-test-smart-game-elements_198278-5620.jpg");
+}
+
+.quiz-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 5px solid black;
+  border-radius: 40px;
+  background-color:white;
+}
+
+.choices button {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+#next-btn {
+  margin-top: 20px;
+  background-color:blue;
+  color: white;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+#next-btn:hover {
+  background-color: #0056b3;
+}
+  </style>
+  <title>Tech Quiz Test</title>
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>Tech Quiz Test</h1>
+    <div id="question"></div>
+    <div id="choices" class="choices"></div>
+    <button id="next-btn">Next</button>
+    <div id="score">Score: 0</div>
+  </div>
+  <script>
+  const questionElement = document.getElementById('question');
+const choicesElement = document.getElementById('choices');
+const nextButton = document.getElementById('next-btn');
+const scoreElement = document.getElementById('score');
+
+let currentQuestionIndex = 0;
+let score = 0;
+
+const questions = [
+  {
+    question: 'Which technology is right now in "Boom"?',
+    choices: ['AI', 'ROBOTICS', 'IOT'],
+    correctAnswer: 0
+  },
+  {
+    question: 'Who "created" the CHATGPT?',
+    choices: ['Sam ALtman', 'Elon Musk', 'Bill Gates'],
+    correctAnswer: 0
+  },
+  {
+    question: 'Most popular "IT hub" in all over world?',
+    choices: ['Silicon Valley', 'Banglore', 'New York'],
+    correctAnswer: 0
+  }
+];
+
+function showQuestion() {
+  const question = questions[currentQuestionIndex];
+  questionElement.textContent = question.question;
+  choicesElement.innerHTML = '';
+
+  question.choices.forEach((choice, index) => {
+    const button = document.createElement('button');
+    button.textContent = choice;
+    button.addEventListener('click', () => handleAnswer(index));
+    choicesElement.appendChild(button);
+  });
+}
+
+function handleAnswer(choiceIndex) {
+  const question = questions[currentQuestionIndex];
+  if (choiceIndex === question.correctAnswer) {
+    score++;
+    scoreElement.textContent = `Score: ${score}`;
+  }
+
+  currentQuestionIndex++;
+
+  if (currentQuestionIndex < questions.length) {
+    showQuestion();
+  } else {
+    questionElement.textContent = 'Quiz completed!';
+    choicesElement.innerHTML = '';
+    nextButton.disabled = true;
+  }
+}
+
+nextButton.addEventListener('click', () => {
+  showQuestion();
+  nextButton.disabled = true;
+});
+
+showQuestion();
+
+  </script>
+</body>
+</html>
