@@ -1,0 +1,107 @@
+<!--Testing the project-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linktree</title>
+  <style>
+  body {
+  font-family: Arial, sans-serif;
+  background-color: #F7882F;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  background-color: #DCC7AA;
+  text-align: center;
+  padding: 50px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0.8, 0.65);
+  border-radius: 5px;
+}
+
+h1 {
+  font-size: 54px;
+  font-family:courier;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #00a0d2;
+  color: white;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#links-container {
+  margin-top: 20px;
+  padding:12px;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Linktree</h1>
+    <div id="links-container">
+      <!-- Links will be added here -->
+    </div>
+    <button onclick="addLink()">Add Link</button>
+  </div>
+  <script>
+  // Sample initial links
+const initialLinks = [
+  { name: 'GitHub', url: 'https://github.com/yourusername' },
+];
+
+// Function to add a link
+function addLink() {
+  const name = prompt('Enter the name for your link:');
+  if (!name) return;
+
+  const url = prompt('Enter the URL for your link:');
+  if (!url) return;
+
+  const link = { name, url };
+  const linksContainer = document.getElementById('links-container');
+  const linkItem = document.createElement('div');
+  linkItem.className = 'link-item';
+  linkItem.innerHTML = `
+    <a href="${url}" target="_blank">${name}</a>
+    <button onclick="deleteLink(this)">Delete</button>
+  `;
+  linksContainer.appendChild(linkItem);
+}
+
+// Function to delete a link
+function deleteLink(button) {
+  const linkItem = button.parentElement;
+  linkItem.remove();
+}
+
+// Initialize links
+function initializeLinks() {
+  const linksContainer = document.getElementById('links-container');
+  initialLinks.forEach((link) => {
+    const linkItem = document.createElement('div');
+    linkItem.className = 'link-item';
+    linkItem.innerHTML = `
+      <a href="${link.url}" target="_blank">${link.name}</a>
+      <button onclick="deleteLink(this)">Delete</button>
+    `;
+    linksContainer.appendChild(linkItem);
+  });
+}
+
+initializeLinks();
+
+  </script>
+</body>
+</html>
